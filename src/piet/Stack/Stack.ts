@@ -1,3 +1,5 @@
+import {StackUnderflowException} from "./StackUnderflowException.ts";
+
 export class Stack<TElement> {
     private elements: Array<TElement> = [];
 
@@ -14,6 +16,12 @@ export class Stack<TElement> {
     }
 
     pop(): TElement {
-        return this.elements.pop()!;
+        const element = this.elements.pop();
+
+        if (element === undefined) {
+            throw new StackUnderflowException()
+        }
+
+        return element;
     }
 }

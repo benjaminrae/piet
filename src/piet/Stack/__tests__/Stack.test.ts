@@ -1,4 +1,5 @@
 import {Stack} from "../Stack.ts";
+import {StackUnderflowException} from "../StackUnderflowException.ts";
 
 
 describe("Stack", () => {
@@ -34,4 +35,11 @@ describe("Stack", () => {
 
         expect(poppedElement).toBe(element);
     })
+
+    it("should underflow if empty stack is popped", () => {
+        const stack = new Stack<number>();
+
+        expect(() => stack.pop()).toThrowError(StackUnderflowException);
+    })
 })
+
