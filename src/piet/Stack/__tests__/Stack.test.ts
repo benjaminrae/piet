@@ -23,7 +23,6 @@ describe("Stack", () => {
         stack.push(element);
 
         expect(stack.peek()).toBe(element);
-
     })
 
     it("should pop element pushed onto stack", () => {

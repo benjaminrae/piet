@@ -16,12 +16,10 @@ export class Stack<TElement> {
     }
 
     pop(): TElement {
-        const element = this.elements.pop();
-
-        if (element === undefined) {
+        if (this.isEmpty()) {
             throw new StackUnderflowException()
         }
 
-        return element;
+        return this.elements.pop()!;
     }
 }
