@@ -6,4 +6,12 @@ describe("Stack", () => {
 
         expect(stack.isEmpty()).toBe(true);
     })
+
+    it("should not be empty when element is pushed onto stack", () => {
+        const stack = new Stack<number>();
+
+        stack.push(1);
+
+        expect(stack.isEmpty()).toBe(false);
+    })
 })
