@@ -1,5 +1,6 @@
 import {Stack} from "../Stack.ts";
 
+
 describe("Stack", () => {
     it("should create an empty Stack", () => {
         const stack = new Stack<number>();
@@ -14,13 +15,23 @@ describe("Stack", () => {
 
         expect(stack.isEmpty()).toBe(false);
     })
+
     it("should peek element pushed onto stack", () => {
+        const element = 1;
+        const stack = new Stack<number>();
+        stack.push(element);
+
+        expect(stack.peek()).toBe(element);
+
+    })
+
+    it("should pop element pushed onto stack", () => {
         const element = 1;
         const stack = new Stack<number>();
 
         stack.push(element);
+        const poppedElement = stack.pop();
 
-        expect(stack.peek()).toBe(element);
+        expect(poppedElement).toBe(element);
     })
-
 })

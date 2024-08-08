@@ -12,4 +12,8 @@ export class Stack<TElement> {
     peek() {
         return this.elements[this.elements.length - 1];
     }
+
+    pop(): TElement {
+        return this.elements.pop()!;
+    }
 }
