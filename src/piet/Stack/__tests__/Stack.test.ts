@@ -14,4 +14,13 @@ describe("Stack", () => {
 
         expect(stack.isEmpty()).toBe(false);
     })
+    it("should peek element pushed onto stack", () => {
+        const element = 1;
+        const stack = new Stack<number>();
+
+        stack.push(element);
+
+        expect(stack.peek()).toBe(element);
+    })
+
 })
