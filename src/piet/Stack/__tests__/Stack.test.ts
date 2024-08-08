@@ -1,5 +1,6 @@
 import {Stack} from "../Stack.ts";
 import {StackUnderflowException} from "../StackUnderflowException.ts";
+import {StackOverflowException} from "../StackOverflowException.ts";
 
 describe("Stack", () => {
     it("should create an empty Stack", () => {
@@ -40,7 +41,7 @@ describe("Stack", () => {
         expect(() => stack.pop()).toThrowError(StackUnderflowException);
     })
 
-    it("should have size 1 when element pushed onto empty stack", () =>{
+    it("should have size 1 when element pushed onto empty stack", () => {
         const stack = new Stack<number>();
 
         stack.push(1);
@@ -58,6 +59,14 @@ describe("Stack", () => {
 
         expect(stack.pop()).toBe(second);
         expect(stack.pop()).toBe(first);
+    })
+
+    it("should overflow if element pushed onto full stack", () => {
+        const stack = new Stack<number>(1);
+
+        stack.push(1);
+
+        expect(() => stack.push(2)).toThrowError(StackOverflowException);
     })
 })
 
