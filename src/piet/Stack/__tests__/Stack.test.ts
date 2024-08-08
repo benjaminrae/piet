@@ -47,5 +47,17 @@ describe("Stack", () => {
 
         expect(stack.size()).toBe(1);
     })
+
+    it("should pop elements off the stack starting with the last pushed element", () => {
+        const first = 1;
+        const second = 2;
+        const stack = new Stack<number>();
+
+        stack.push(first);
+        stack.push(second);
+
+        expect(stack.pop()).toBe(second);
+        expect(stack.pop()).toBe(first);
+    })
 })
 
