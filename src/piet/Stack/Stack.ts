@@ -13,6 +13,9 @@ export class Stack<TElement> {
         return this.top === -1;
     }
 
+    /*
+    * @throws {StackOverflowException}
+    * */
     public push(element: TElement): void {
         if (this.isFull()) {
             throw new StackOverflowException();
@@ -25,6 +28,9 @@ export class Stack<TElement> {
         return this.elements[this.top];
     }
 
+    /*
+    * @throws {StackUnderflowException}
+    * */
     public pop(): TElement {
         if (this.isEmpty()) {
             throw new StackUnderflowException()
