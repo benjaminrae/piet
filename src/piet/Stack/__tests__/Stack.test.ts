@@ -40,5 +40,13 @@ describe("Stack", () => {
 
         expect(() => stack.pop()).toThrowError(StackUnderflowException);
     })
+
+    it("should have size 1 when element pushed onto empty stack", () =>{
+        const stack = new Stack<number>();
+
+        stack.push(1);
+
+        expect(stack.size()).toBe(1);
+    })
 })
 
