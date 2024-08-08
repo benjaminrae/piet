@@ -1,5 +1,5 @@
-import {StackUnderflowException} from "./StackUnderflowException.ts";
-import {StackOverflowException} from "./StackOverflowException.ts";
+import {StackUnderflowException} from "./exceptions/StackUnderflowException.ts";
+import {StackOverflowException} from "./exceptions/StackOverflowException.ts";
 
 export class Stack<TElement> {
     private readonly elements: Array<TElement>;

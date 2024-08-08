@@ -1,6 +1,6 @@
 import {Stack} from "../Stack.ts";
-import {StackUnderflowException} from "../StackUnderflowException.ts";
-import {StackOverflowException} from "../StackOverflowException.ts";
+import {StackUnderflowException} from "../exceptions/StackUnderflowException.ts";
+import {StackOverflowException} from "../exceptions/StackOverflowException.ts";
 
 describe("Stack", () => {
     it("should create an empty Stack", () => {
