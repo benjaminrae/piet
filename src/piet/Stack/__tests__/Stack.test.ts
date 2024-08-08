@@ -1,7 +1,6 @@
 import {Stack} from "../Stack.ts";
 import {StackUnderflowException} from "../StackUnderflowException.ts";
 
-
 describe("Stack", () => {
     it("should create an empty Stack", () => {
         const stack = new Stack<number>();
