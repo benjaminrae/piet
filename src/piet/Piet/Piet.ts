@@ -1,4 +1,5 @@
 import {Stack} from "../Stack/Stack.ts";
+import {ColorBlock} from "../ColorBlock/ColorBlock.ts";
 
 export class Piet {
     private readonly stack: Stack<number>;
@@ -22,6 +23,11 @@ export class Piet {
 
     public outputCharacter(): string {
         return this.characterFrom(this.stack.pop());
+    }
+
+
+    public push(colorBlock: ColorBlock) {
+        this.stack.push(colorBlock.size());
     }
 
     private charCodeFrom(character: string) {
