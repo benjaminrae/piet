@@ -4,9 +4,15 @@ import {Codel} from "../../Codel/Codel.ts";
 import {ColorBlock} from "../../ColorBlock/ColorBlock.ts";
 
 describe("Piet", () => {
+    let piet: Piet;
+    let stack: Stack<number>
+
+    beforeEach(() => {
+        stack = new Stack<number>();
+        piet = new Piet(stack);
+    });
+
     it("should input a number then output the same number", () => {
-        const stack = new Stack<number>(10);
-        const piet = new Piet(stack);
         const number = 1;
 
         piet.inputNumber(number);
@@ -15,8 +21,6 @@ describe("Piet", () => {
     })
 
     it("should input a character then output the same character", () => {
-        const stack = new Stack<number>(10);
-        const piet = new Piet(stack);
         const character = "a";
 
         piet.inputCharacter(character);
@@ -25,8 +29,6 @@ describe("Piet", () => {
     })
 
     it("should push the number of codels in the received color block then output the same number", () => {
-        const stack = new Stack<number>(10);
-        const piet = new Piet(stack);
         const codels = [new Codel()];
         const colorBlock = new ColorBlock(codels);
 
