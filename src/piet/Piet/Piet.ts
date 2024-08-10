@@ -37,4 +37,8 @@ export class Piet {
     private characterFrom(charCode: number) {
         return String.fromCharCode(charCode);
     }
+
+    public pop() {
+        this.stack.pop();
+    }
 }

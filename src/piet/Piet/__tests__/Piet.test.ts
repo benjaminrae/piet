@@ -30,10 +30,27 @@ describe("Piet", () => {
 
     it("should push the number of codels in the received color block then output the same number", () => {
         const codels = [new Codel()];
+        const number = codels.length;
+
         const colorBlock = new ColorBlock(codels);
 
         piet.push(colorBlock);
-
-        expect(piet.outputNumber()).toBe(1);
+        expect(piet.outputNumber()).toBe(number);
     });
+
+    it("should pop the most recent number of codels and not output it", () => {
+        const firstCodels = [new Codel()];
+        const secondCodels = [new Codel(), new Codel()];
+        const secondNumber = secondCodels.length;
+        const firstColorBlock = new ColorBlock(firstCodels);
+        const secondColorBlock = new ColorBlock(secondCodels);
+
+        piet.push(firstColorBlock);
+        piet.push(secondColorBlock);
+
+        piet.pop()
+        const outputNumber = piet.outputNumber();
+
+        expect(outputNumber).not.toContain(secondNumber);
+    })
 })
