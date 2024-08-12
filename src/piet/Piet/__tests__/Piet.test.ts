@@ -53,4 +53,17 @@ describe("Piet", () => {
 
         expect(outputNumber).not.toContain(secondNumber);
     })
+
+    it("should pop the two recently input numbers and push the sum back onto the stack", () => {
+        const firstNumber = 1;
+        const secondNumber = 2;
+        const sum = firstNumber + secondNumber;
+
+        piet.inputNumber(firstNumber);
+        piet.inputNumber(secondNumber);
+
+        piet.add();
+
+        expect(piet.outputNumber()).toBe(sum);
+    })
 })

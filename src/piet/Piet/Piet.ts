@@ -41,4 +41,11 @@ export class Piet {
     public pop() {
         this.stack.pop();
     }
+
+    public add() {
+        const first = this.stack.pop();
+        const second = this.stack.pop();
+        const sum = first + second;
+        this.stack.push(sum);
+    }
 }
