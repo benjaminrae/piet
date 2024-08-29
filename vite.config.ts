@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
-import path from 'node:path'
-import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
+import path from "node:path";
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
-import tailwind from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
+import tailwind from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 export default defineConfig({
     css: {
@@ -15,10 +15,10 @@ export default defineConfig({
     plugins: [vue()],
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            "@": path.resolve(__dirname, "./src"),
         },
     },
     test: {
         globals: true,
-    }
+    },
 });

@@ -1,4 +1,4 @@
-import {Codel} from "../Codel/Codel.ts";
+import { Codel } from "../Codel/Codel.ts";
 
 export class ColorBlock {
     private codels: Codel[];

@@ -1,3 +1,1 @@
-export class StackOverflowException extends Error {
-
-}
+export class StackOverflowException extends Error {}

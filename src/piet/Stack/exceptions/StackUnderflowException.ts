@@ -1,3 +1,1 @@
-export class StackUnderflowException extends Error {
-
-}
+export class StackUnderflowException extends Error {}

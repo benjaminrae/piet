@@ -1,2 +1,1 @@
-export class Codel {
-}
+export class Codel {}

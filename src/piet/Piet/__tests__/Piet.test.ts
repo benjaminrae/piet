@@ -1,11 +1,11 @@
-import {Stack} from "../../Stack/Stack.ts";
-import {Piet} from "../Piet.ts";
-import {Codel} from "../../Codel/Codel.ts";
-import {ColorBlock} from "../../ColorBlock/ColorBlock.ts";
+import { Stack } from "../../Stack/Stack.ts";
+import { Piet } from "../Piet.ts";
+import { Codel } from "../../Codel/Codel.ts";
+import { ColorBlock } from "../../ColorBlock/ColorBlock.ts";
 
 describe("Piet", () => {
     let piet: Piet;
-    let stack: Stack<number>
+    let stack: Stack<number>;
 
     beforeEach(() => {
         stack = new Stack<number>();
@@ -18,7 +18,7 @@ describe("Piet", () => {
         piet.inputNumber(number);
 
         expect(piet.outputNumber()).toBe(number);
-    })
+    });
 
     it("should input a character then output the same character", () => {
         const character = "a";
@@ -26,7 +26,7 @@ describe("Piet", () => {
         piet.inputCharacter(character);
 
         expect(piet.outputCharacter()).toBe(character);
-    })
+    });
 
     it("should push the number of codels in the received color block then output the same number", () => {
         const codels = [new Codel()];
@@ -48,11 +48,11 @@ describe("Piet", () => {
         piet.push(firstColorBlock);
         piet.push(secondColorBlock);
 
-        piet.pop()
+        piet.pop();
         const outputNumber = piet.outputNumber();
 
         expect(outputNumber).not.toContain(secondNumber);
-    })
+    });
 
     it("should pop the two recently input numbers and push the sum back onto the stack", () => {
         const firstNumber = 1;
@@ -65,5 +65,5 @@ describe("Piet", () => {
         piet.add();
 
         expect(piet.outputNumber()).toBe(sum);
-    })
-})
+    });
+});

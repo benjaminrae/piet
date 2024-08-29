@@ -1,5 +1,5 @@
-import {StackUnderflowException} from "./exceptions/StackUnderflowException.ts";
-import {StackOverflowException} from "./exceptions/StackOverflowException.ts";
+import { StackUnderflowException } from "./exceptions/StackUnderflowException.ts";
+import { StackOverflowException } from "./exceptions/StackOverflowException.ts";
 
 export class Stack<TElement> {
     private readonly elements: Array<TElement>;
@@ -14,14 +14,14 @@ export class Stack<TElement> {
     }
 
     /*
-    * @throws {StackOverflowException}
-    * */
+     * @throws {StackOverflowException}
+     * */
     public push(element: TElement): void {
         if (this.isFull()) {
             throw new StackOverflowException();
         }
 
-        this.elements[++this.top] = element
+        this.elements[++this.top] = element;
     }
 
     public peek() {
@@ -29,14 +29,14 @@ export class Stack<TElement> {
     }
 
     /*
-    * @throws {StackUnderflowException}
-    * */
+     * @throws {StackUnderflowException}
+     * */
     public pop(): TElement {
         if (this.isEmpty()) {
-            throw new StackUnderflowException()
+            throw new StackUnderflowException();
         }
 
-        return this.elements[this.top--]
+        return this.elements[this.top--];
     }
 
     public size() {
