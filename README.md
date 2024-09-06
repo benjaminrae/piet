@@ -1,5 +1,27 @@
-# Vue 3 + TypeScript + Vite
+# Piet
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A Piet interpreter written in TypeScript.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Core
+
+### Piet
+
+Operations taken from [esolangs.org](https://esolangs.org/wiki/Piet)
+
+- [x] Push
+- [x] Pop
+- [x] Add
+- [ ] Subtract
+- [ ] Multiply
+- [ ] Divide
+- [ ] Modulo
+- [ ] Not
+- [ ] Greater
+- [ ] Pointer
+- [ ] Switch
+- [ ] Duplicate
+- [ ] Roll
+- [x] Input Number
+- [x] Input Character
+- [x] Output Number
+- [x] Output Character
