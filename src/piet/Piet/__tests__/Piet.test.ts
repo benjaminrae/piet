@@ -150,4 +150,16 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(1);
     });
+
+    it("should pop the top two numbers off the stack and push 0 if the second top is not greater than the top", () => {
+        const firstNumber = 1;
+        const secondNumber = 2;
+
+        piet.inputNumber(firstNumber);
+        piet.inputNumber(secondNumber);
+
+        piet.greater();
+
+        expect(piet.outputNumber()).toBe(0);
+    });
 });
