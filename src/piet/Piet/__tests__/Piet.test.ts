@@ -118,4 +118,14 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(remainder);
     });
+
+    it("should pop the top value off the stack and push 1 if the value is 0", () => {
+        const number = 0;
+
+        piet.inputNumber(number);
+
+        piet.not();
+
+        expect(piet.outputNumber()).toBe(1);
+    });
 });

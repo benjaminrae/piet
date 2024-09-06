@@ -57,6 +57,14 @@ export class Piet {
         this.stack.push(secondTop % top);
     }
 
+    public not() {
+        const top = this.stack.pop();
+
+        if (top === 0) {
+            this.stack.push(1);
+        }
+    }
+
     private popTopTwo() {
         const top = this.stack.pop();
         const secondTop = this.stack.pop();
