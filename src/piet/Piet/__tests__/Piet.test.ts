@@ -92,4 +92,17 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(product);
     });
+
+    it("should pop the top two numbers off the stack and push the quotient quotient of second top divided by the top back onto the stack", () => {
+        const firstNumber = 6;
+        const secondNumber = 3;
+        const quotient = 2;
+
+        piet.inputNumber(firstNumber);
+        piet.inputNumber(secondNumber);
+
+        piet.divide();
+
+        expect(piet.outputNumber()).toBe(quotient);
+    });
 });

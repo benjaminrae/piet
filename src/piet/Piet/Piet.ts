@@ -47,6 +47,11 @@ export class Piet {
         this.stack.push(top * secondTop);
     }
 
+    public divide() {
+        const { top, secondTop } = this.popTopTwo();
+        this.stack.push(Math.floor(secondTop / top));
+    }
+
     private popTopTwo() {
         const top = this.stack.pop();
         const secondTop = this.stack.pop();
