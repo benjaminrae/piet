@@ -33,24 +33,24 @@ export class Piet {
     }
 
     public add() {
-        const first = this.stack.pop();
-        const second = this.stack.pop();
-        const sum = first + second;
-        this.stack.push(sum);
+        const { top, secondTop } = this.popTopTwo();
+        this.stack.push(top + secondTop);
     }
 
     public subtract() {
-        const first = this.stack.pop();
-        const second = this.stack.pop();
-        const difference = second - first;
-        this.stack.push(difference);
+        const { top, secondTop } = this.popTopTwo();
+        this.stack.push(secondTop - top);
     }
 
     public multiply() {
-        const first = this.stack.pop();
-        const second = this.stack.pop();
-        const product = first * second;
-        this.stack.push(product);
+        const { top, secondTop } = this.popTopTwo();
+        this.stack.push(top * secondTop);
+    }
+
+    private popTopTwo() {
+        const top = this.stack.pop();
+        const secondTop = this.stack.pop();
+        return { top, secondTop };
     }
 
     private charCodeFrom(character: string) {
