@@ -39,6 +39,13 @@ export class Piet {
         this.stack.push(sum);
     }
 
+    public subtract() {
+        const first = this.stack.pop();
+        const second = this.stack.pop();
+        const difference = second - first;
+        this.stack.push(difference);
+    }
+
     private charCodeFrom(character: string) {
         return character.charCodeAt(0);
     }

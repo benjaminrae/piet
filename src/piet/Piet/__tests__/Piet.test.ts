@@ -66,4 +66,17 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(sum);
     });
+
+    it("should pop the two recently input numbers and push the difference between the second top and the top value back onto the stack", () => {
+        const firstNumber = 2;
+        const secondNumber = 1;
+        const difference = firstNumber - secondNumber;
+
+        piet.inputNumber(firstNumber);
+        piet.inputNumber(secondNumber);
+
+        piet.subtract();
+
+        expect(piet.outputNumber()).toBe(difference);
+    });
 });
