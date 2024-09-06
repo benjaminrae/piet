@@ -105,4 +105,17 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(quotient);
     });
+
+    it("should pop the top two numbers off the stack and push the remainder of the second top divided by the top back onto the stack", () => {
+        const firstNumber = 6;
+        const secondNumber = 4;
+        const remainder = 2;
+
+        piet.inputNumber(firstNumber);
+        piet.inputNumber(secondNumber);
+
+        piet.modulo();
+
+        expect(piet.outputNumber()).toBe(remainder);
+    });
 });

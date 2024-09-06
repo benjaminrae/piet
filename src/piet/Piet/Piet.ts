@@ -52,6 +52,11 @@ export class Piet {
         this.stack.push(Math.floor(secondTop / top));
     }
 
+    public modulo() {
+        const { top, secondTop } = this.popTopTwo();
+        this.stack.push(secondTop % top);
+    }
+
     private popTopTwo() {
         const top = this.stack.pop();
         const secondTop = this.stack.pop();
