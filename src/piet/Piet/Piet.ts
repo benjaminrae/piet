@@ -68,6 +68,11 @@ export class Piet {
         this.stack.push(secondTop > top ? 1 : 0);
     }
 
+    public duplicate() {
+        const top = this.stack.peek();
+        this.stack.push(top);
+    }
+
     private popTopTwo() {
         const top = this.stack.pop();
         const secondTop = this.stack.pop();

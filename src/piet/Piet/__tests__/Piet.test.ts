@@ -162,4 +162,15 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(0);
     });
+
+    it("should push a copy of the top number onto the stack", () => {
+        const number = 1;
+
+        piet.inputNumber(number);
+
+        piet.duplicate();
+
+        expect(piet.outputNumber()).toBe(number);
+        expect(piet.outputNumber()).toBe(number);
+    });
 });
