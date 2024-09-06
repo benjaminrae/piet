@@ -79,4 +79,17 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(difference);
     });
+
+    it("should pop the top two numbers off the stack and push the product back onto the stack", () => {
+        const firstNumber = 2;
+        const secondNumber = 3;
+        const product = firstNumber * secondNumber;
+
+        piet.inputNumber(firstNumber);
+        piet.inputNumber(secondNumber);
+
+        piet.multiply();
+
+        expect(piet.outputNumber()).toBe(product);
+    });
 });

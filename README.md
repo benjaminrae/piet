@@ -11,7 +11,7 @@ Operations taken from [esolangs.org](https://esolangs.org/wiki/Piet)
 - [x] Push
 - [x] Pop
 - [x] Add
-- [ ] Subtract
+- [x] Subtract
 - [ ] Multiply
 - [ ] Divide
 - [ ] Modulo
