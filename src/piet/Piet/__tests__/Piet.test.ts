@@ -128,4 +128,14 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(1);
     });
+
+    it("should pop the top value off the stack and push 0 if the value is not 0", () => {
+        const number = 1;
+
+        piet.inputNumber(number);
+
+        piet.not();
+
+        expect(piet.outputNumber()).toBe(0);
+    });
 });

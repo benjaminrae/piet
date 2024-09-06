@@ -60,9 +60,7 @@ export class Piet {
     public not() {
         const top = this.stack.pop();
 
-        if (top === 0) {
-            this.stack.push(1);
-        }
+        this.stack.push(top === 0 ? 1 : 0);
     }
 
     private popTopTwo() {
