@@ -2,6 +2,7 @@ import { Stack } from "../../Stack/Stack.ts";
 import { Piet } from "../Piet.ts";
 import { Codel } from "../../Codel/Codel.ts";
 import { ColorBlock } from "../../ColorBlock/ColorBlock.ts";
+import { expect } from "vitest";
 
 describe("Piet", () => {
     let piet: Piet;
@@ -172,5 +173,94 @@ describe("Piet", () => {
 
         expect(piet.outputNumber()).toBe(number);
         expect(piet.outputNumber()).toBe(number);
+    });
+
+    it("should pop the top two numbers off the stack and then rotate the top Y values up by X where X was the first value popped and Y the second", () => {
+        piet.inputNumber(4);
+        piet.inputNumber(5);
+        piet.inputNumber(1);
+        piet.inputNumber(2);
+        piet.inputNumber(3);
+
+        piet.inputNumber(3);
+        piet.inputNumber(1);
+
+        piet.roll();
+
+        expect(piet.outputNumber()).toBe(2);
+        expect(piet.outputNumber()).toBe(1);
+        expect(piet.outputNumber()).toBe(3);
+        expect(piet.outputNumber()).toBe(5);
+        expect(piet.outputNumber()).toBe(4);
+    });
+
+    it("shouldn't do anything if stack too short to roll", () => {
+        piet.inputNumber(1);
+
+        piet.roll();
+
+        expect(piet.outputNumber()).toBe(1);
+    });
+
+    it("shouldn't do anything if stack too short to roll (empty)", () => {
+        piet.roll();
+
+        expect(() => piet.outputNumber()).toThrow();
+    });
+
+    it("shouldn't do anything if stack too short to roll", () => {
+        piet.inputNumber(1);
+        piet.inputNumber(2);
+
+        piet.roll();
+
+        expect(piet.outputNumber()).toBe(2);
+        expect(piet.outputNumber()).toBe(1);
+    });
+
+    it("should roll with one", () => {
+        piet.inputNumber(1);
+        piet.inputNumber(0);
+        piet.inputNumber(2);
+
+        piet.roll();
+
+        expect(piet.outputNumber()).toBe(1);
+    });
+
+    it("shouldn't do anything if depth is -1", () => {
+        piet.inputNumber(1);
+        piet.inputNumber(-1);
+        piet.inputNumber(2);
+
+        piet.roll();
+
+        expect(piet.outputNumber()).toBe(2);
+        expect(piet.outputNumber()).toBe(-1);
+        expect(piet.outputNumber()).toBe(1);
+    });
+
+    it("should roll two", () => {
+        piet.inputNumber(1);
+        piet.inputNumber(2);
+        piet.inputNumber(1);
+        piet.inputNumber(2);
+
+        piet.roll();
+
+        expect(piet.outputNumber()).toBe(2);
+        expect(piet.outputNumber()).toBe(1);
+    });
+
+    it("shouldn't do anything if rolls is 0", () => {
+        piet.inputNumber(1);
+        piet.inputNumber(2);
+        piet.inputNumber(0);
+
+        piet.roll();
+
+        expect(piet.outputNumber()).toBe(0);
+        expect(piet.outputNumber()).toBe(2);
+        expect(piet.outputNumber()).toBe(1);
     });
 });

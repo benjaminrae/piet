@@ -73,6 +73,51 @@ export class Piet {
         this.stack.push(top);
     }
 
+    public roll() {
+        if (this.stackTooShortToRoll()) {
+            return;
+        }
+        const { top: rolls, secondTop: depth } = this.popTopTwo();
+
+        if (this.cannotRollWith(depth)) {
+            this.stack.push(depth);
+            this.stack.push(rolls);
+            return;
+        }
+
+        if (this.isUselessRoll(depth, rolls)) {
+            return;
+        }
+
+        const numbersToRotate: number[] = [];
+        for (let i = 0; i < depth; i++) {
+            numbersToRotate.unshift(this.stack.pop());
+        }
+
+        let positions: number[] = Array.from(Array(depth).keys());
+        if (rolls > 0) {
+            positions = positions.slice(-rolls % depth).concat(positions.slice(0, -rolls % depth));
+        } else {
+            positions = positions.slice(rolls % depth).concat(positions.slice(0, rolls % depth));
+        }
+
+        for (let i = 0; i < depth; i++) {
+            this.stack.push(numbersToRotate[positions[i]]);
+        }
+    }
+
+    private isUselessRoll(depth: number, rolls: number) {
+        return depth <= 1 || rolls === 0;
+    }
+
+    private cannotRollWith(depth: number) {
+        return depth < 0 || this.stack.size() < depth;
+    }
+
+    private stackTooShortToRoll() {
+        return this.stack.size() < 2;
+    }
+
     private popTopTwo() {
         const top = this.stack.pop();
         const secondTop = this.stack.pop();

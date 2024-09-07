@@ -16,10 +16,10 @@ Operations taken from [esolangs.org](https://esolangs.org/wiki/Piet)
 - [x] Divide
 - [x] Modulo
 - [x] Not
-- [ ] Greater
+- [x] Greater
 - [ ] Pointer
 - [ ] Switch
-- [ ] Duplicate
+- [x] Duplicate
 - [ ] Roll
 - [x] Input Number
 - [x] Input Character
